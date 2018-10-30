@@ -19,7 +19,7 @@ after_script:
   - git config user.email "hank.qin1994@gmail.com"
   - git add .
   - git commit -am "Update docs"
-  - git push "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
