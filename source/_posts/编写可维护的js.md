@@ -40,7 +40,7 @@ function func() {
 ```
 
 ## for循环
-for循环大家都懂，但是按照书中的说法，如果简单使用```var i=0;i>something.length;i++```，每次循环都会去找一个something，如果只是简单数组还好，如果循环的是DOM，那就非常糟糕了，要知道不论什么时候，使用DOM都是非常昂贵的。  
+for循环大家都懂，但是按照书中的说法，如果简单使用`var i=0;i>something.length;i++`，每次循环都会去找一个something，如果只是简单数组还好，如果循环的是DOM，那就非常糟糕了，要知道不论什么时候，使用DOM都是非常昂贵的。  
 再者是i++写法，JSLint推荐使用i+=1，解释是“避免过分棘手(excessive trickiness)”  
 所以完整下来应该就是：
 ``` javascript

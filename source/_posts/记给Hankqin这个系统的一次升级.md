@@ -8,13 +8,9 @@ categories: 技术
 ## 升级Https
   升级到https其实对我这个系统没多大影响，反正还有些不方便，但是我觉得还是值得的，毕竟在前端方面对安全的防范本就不够，能开的安全方式就给开了吧。  
   升级过程是这样的，先申请证书，我一共申请了3个，阿里云2个，腾讯云1个，为什么阿里云需要2个呢，因为阿里云的免费证书只能绑定一个域名，而我接口有两个，而且我还不想合并，所以就申请了两个，分别对应  
-  https://api.hankqin.com  
-  和  
-  https://music.hankqin.com  
+  https://api.hankqin.com  和  https://music.hankqin.com  
   腾讯云的那一个则对应cdn里的域名，分别是  
-  https://www.hankqin.com  
-  和  
-  https://hankqin.com  
+  https://www.hankqin.com  和  https://hankqin.com  
   升级过程腾讯云其实还算简单，概括的说就是点点点就好了。  
   阿里云因为是服务器端的，所以要下载证书，因为我用的Ngnix，所以配置如下：  
   ```ngnix
