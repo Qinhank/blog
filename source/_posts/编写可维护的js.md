@@ -131,4 +131,5 @@ switch不仅能让代码看起来简洁，而且非常高高效。
 要求：编写一个javscript函数 fn，该函数有一个参数 n（数字类型），其返回值是一个数组，该数组内是 n 个随机且不重复的整数，且整数取值范围是 [2, 32]。
 
 代码：
-![example](/images/example.png)
+
+![example](D:\Hank\blog\images\example.png)
