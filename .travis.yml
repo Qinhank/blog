@@ -1,5 +1,6 @@
 language: node_js
-node_js: stable
+node_js:
+  - v8.12.0
 
 # S: Build Lifecycle
 install:
@@ -7,8 +8,7 @@ install:
   - cnpm i
 
 before_script:
-  - hexo clean                      # 清除缓存静态文件
-  - hexo g                        # 生成静态文件
+  - hexo g -f                        # 生成静态文件
   - cd ./public
   - ls
   - cat index.html
