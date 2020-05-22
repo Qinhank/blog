@@ -3,13 +3,15 @@ node_js: stable
 
 # S: Build Lifecycle
 install:
-  - npm install
+  - npm install cnpm -g
+  - cnpm i
 
 before_script:
   - hexo clean                      # 清除缓存静态文件
   - hexo g                        # 生成静态文件
   - cd ./public
   - ls
+  - cat index.html
 
 script:
   #- git clone https://${GH_REF} .deploy_git
