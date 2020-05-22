@@ -6,24 +6,25 @@ install:
   - npm install
 
 
-#before_script:
- # - npm install -g gulp
+before_script:
+  - rm -rf public
 
 script:
-  - hexo clean && hexo generate -f
+  - hexo generate -f
 
 after_script:
-  - git clone https://${GH_REF} .deploy_git
-  - cd .deploy_git
-  - git checkout master
-  - cd ../
-  - mv .deploy_git/.git/ ./public/
+  #- git clone https://${GH_REF} .deploy_git
+  #- cd .deploy_git
+  #- git checkout master
+  #- cd ../
+  #- mv .deploy_git/.git/ ./public/
   - cd ./public
+  - git init
   - git config user.name "hank.qin1994"
   - git config user.email "hank.qin1994@gmail.com"
   - git add .
   - git commit -m "Update docs"
-  - git push -q -u "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
