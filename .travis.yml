@@ -3,12 +3,11 @@ node_js: stable
 
 # S: Build Lifecycle
 install:
-  - npm install -g cnpm
-  - cnpm install
+  - npm install
 
 before_script:
   - hexo clean                      # 清除缓存静态文件
-  - hexo g -w                          # 生成静态文件
+  - hexo g                        # 生成静态文件
   - cd ./public
   - ls
 
