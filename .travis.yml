@@ -4,8 +4,8 @@ node_js:
 
 # S: Build Lifecycle
 install:
-  - npm install cnpm -g
-  - cnpm i
+  #- npm install cnpm -g
+  - npm i
 
 before_script:
   - hexo g -f                        # 生成静态文件
