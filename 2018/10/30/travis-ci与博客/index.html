@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="一个前端开发er"><title>travis-ci与博客 | Hank</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">travis-ci与博客</h1><a id="logo" href="/."></a><p class="description">一个前端开发er</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/search.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">travis-ci与博客</h1><div class="post-meta">2018-10-30<span> | </span><span class="category"><a href="/categories/技术/">技术</a></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/10/30/travis-ci与博客/" href="/2018/10/30/travis-ci与博客/#disqus_thread"></a><div class="post-content"><p>这次我分享下基于Travis CI完成个人博客的自动化构建的方法，同样的，网上资料已经一大堆了，具体的步骤就不过多书写，主要说点形而上的东西吧。</p>
+<h2 id="为什么要用CI？"><a href="#为什么要用CI？" class="headerlink" title="为什么要用CI？"></a>为什么要用CI？</h2><p>如果你不能理解每次写完代码后打包上传这个过程有多繁琐你可能就不能理解为什么要用CI。<br>CI最大的作用就是解放双手，即使可能你今天没什么特别的事，不是特别忙，但是有了这段空闲时间你可以做更多你想做的事情，比如看看别人的博客，看看github上有什么热门项目。<br>CI还有一个很重要的功能是测试，自动化的测试说一就是一，不会乱来，所以当你有哪里不对时，CI是绝对不会让你通过的。</p>
+<h2 id="自动化过程"><a href="#自动化过程" class="headerlink" title="自动化过程"></a>自动化过程</h2><p>我简单的列了一个使用CI后编写博客的过程，也分享出来让大家心里有个数：<br>ME  <strong>–&gt;</strong>  打开HEXO预览(hexo server) <strong> –&gt;</strong>  创建新文章(hexo new [layout] title)  <strong>–&gt;</strong>  编辑新内容(markdown)  <strong>–&gt;</strong>  排版错别字方面没问题(commit and push)  <strong>–&gt;</strong>  <strong>CI</strong>(接下来由CI负责)  <strong>–&gt;</strong>  编译(hexo g)  <strong>–&gt;</strong>  提交到master(commit and push)  </p>
+<h2 id="一些教程"><a href="#一些教程" class="headerlink" title="一些教程"></a>一些教程</h2><p><a href="https://www.jianshu.com/p/e22c13d85659" target="_blank" rel="noopener">手把手教你使用Travis CI自动部署你的Hexo博客到Github上</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/53130423?utm_source=blogxgwz1" target="_blank" rel="noopener">hexo教程系列——使用Travis自动部署hexo</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>其实博客与自动化结合并没有提升多少效率，如果你不想写，神仙都拦不了你，只能说我用博客为引子，将自己带进自动化部署这个坑，有了这个成功先例，以后再更复杂的项目中做CI也不至于气馁到就此放弃。</p>
+</div><div class="tags"><a href="/tags/ci-自动化/"><i class="fa fa-tag"></i>ci 自动化</a></div><div class="post-nav"><a class="pre" href="/2018/11/20/记给Hankqin这个系统的一次升级/">记给Hankqin这个系统的一次升级</a><a class="next" href="/2018/03/01/编写可维护的js/">编写可维护的js</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://blog.hankqin.com/2018/10/30/travis-ci与博客/';
+    this.page.identifier = '2018/10/30/travis-ci与博客/';
+    this.page.title = 'travis-ci与博客';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//hankqin.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//hankqin.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://hankqin.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Google/">Google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/备份/">备份</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/js规范/" style="font-size: 15px;">js规范</a> <a href="/tags/技巧/" style="font-size: 15px;">技巧</a> <a href="/tags/ci-自动化/" style="font-size: 15px;">ci 自动化</a> <a href="/tags/协议-页面渲染过程/" style="font-size: 15px;">协议 页面渲染过程</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/备份/" style="font-size: 15px;">备份</a> <a href="/tags/技术/" style="font-size: 15px;">技术</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/nginx-腾讯云-https/" style="font-size: 15px;">nginx 腾讯云 https</a> <a href="/tags/跨域/" style="font-size: 15px;">跨域</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/01/11/技术-2022-01-10/">技术 | 2022.01.10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/14/对egg-js框架的学习与理解/">对egg.js框架的学习与理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/16/技巧-折腾一个好看的windows终端/">折腾一个好看的windows终端</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/09/关于最近对VPS的研究/">关于最近对VPS的研究</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/03/记一次RSS整合感想/">记一次RSS整合感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/24/换了一个新主题/">换了一个新主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/嗨，W君/">嗨，W君</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/google搜索进阶/">google搜索进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/11/Airbnb的JS代码规范整理/">Airbnb的JS代码规范整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/记给Hankqin这个系统的一次升级/">记给Hankqin这个系统的一次升级</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//hankqin.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Hank.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=0.0.0"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" color="0,0,0" opacity="0.5" zIndex="-2" count="150" src="//cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.min.js"></script><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

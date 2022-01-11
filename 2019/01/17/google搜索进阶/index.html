@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="一个前端开发er"><title>google搜索进阶 | Hank</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">google搜索进阶</h1><a id="logo" href="/."></a><p class="description">一个前端开发er</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/search.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">google搜索进阶</h1><div class="post-meta">2019-01-17<span> | </span><span class="category"><a href="/categories/Google/">Google</a></span></div><a class="disqus-comment-count" data-disqus-identifier="2019/01/17/google搜索进阶/" href="/2019/01/17/google搜索进阶/#disqus_thread"></a><div class="post-content"><h1 id="精确搜索"><a href="#精确搜索" class="headerlink" title="精确搜索"></a>精确搜索</h1><h3 id="精确的关键词排列"><a href="#精确的关键词排列" class="headerlink" title="精确的关键词排列"></a>精确的关键词排列</h3><p>使用<code>“关键词”</code>，如果直接输入关键词，可能词与词之间会分隔很远，不符合你想要的搜索结果  </p>
+<h3 id="限定搜索的网站"><a href="#限定搜索的网站" class="headerlink" title="限定搜索的网站"></a>限定搜索的网站</h3><p>如果你只是想搜索特定网站的关键词，可以使用<code>site:网站地址</code>限定</p>
+<p>注意1：网站地址不需要加<code>http://</code>或<code>https://</code></p>
+<p>注意2：网站地址也可以是泛式的，如<code>.com</code>则表示只搜索.com域名的网址</p>
+<h3 id="只搜索网站标题"><a href="#只搜索网站标题" class="headerlink" title="只搜索网站标题"></a>只搜索网站标题</h3><p>如果你要查找的关键词只需要在网站标题中出现，可以使用<code>intitle:关键词</code>搜索</p>
+<p>拓展：</p>
+<p>1.多个关键词——<code>allintitle:关键词1 关键词2</code></p>
+<p>2.一个模糊一个精确——<code>关键词1 intitle:关键词2</code></p>
+<h3 id="只搜索网页正文"><a href="#只搜索网页正文" class="headerlink" title="只搜索网页正文"></a>只搜索网页正文</h3><p>使用方法同上，单词为<code>intext</code>和<code>allintext</code></p>
+<h3 id="只搜索网站地址"><a href="#只搜索网站地址" class="headerlink" title="只搜索网站地址"></a>只搜索网站地址</h3><p>方法同上，单词为<code>inurl</code>和<code>allinurl</code></p>
+<h3 id="只搜索指定格式"><a href="#只搜索指定格式" class="headerlink" title="只搜索指定格式"></a>只搜索指定格式</h3><p>方法<code>filetype:格式名称</code></p>
+<p>可以只搜索你想搜的特定格式的地址，如你想找一本pdf格式的书，你就可以输入<code>书名 filetype:pdf</code></p>
+<h1 id="模糊搜索"><a href="#模糊搜索" class="headerlink" title="模糊搜索"></a>模糊搜索</h1><h3 id="同义词（波浪号）"><a href="#同义词（波浪号）" class="headerlink" title="同义词（波浪号）"></a>同义词（波浪号）</h3><p>紧挨着关键词之前放波浪号 <code>~</code> 表示搜索同义词。<br>有了这个功能，你就不必用 <code>OR</code> 写一堆关键词。因为 Google 是足够聪明的，知道哪些词汇是近义词。</p>
+<h3 id="数字范围（两点）"><a href="#数字范围（两点）" class="headerlink" title="数字范围（两点）"></a>数字范围（两点）</h3><p>两个数字之间放两个小数点 <code>..</code> 表示模糊搜索该数字范围。</p>
+<p>如：<code>世界杯 2002..2010</code></p>
+<h3 id="通配符（星号）"><a href="#通配符（星号）" class="headerlink" title="通配符（星号）"></a>通配符（星号）</h3><p>可以用<code>*</code>代替任何一个词汇。</p>
+<p>如你要搜索一个叫“以飨读者”的成语，你不指定“飨”怎么写，就可以用<code>*</code>代替，在搜索框输入<code>&quot;以*读者&quot;</code>试试吧。</p>
+<p>除此之后，还能与<code>site</code>配合使用，扩大搜索范围，如<code>关键词 site:sina.com.*</code></p>
+<p>注：新浪有几个域名sina.com.cn、sina.com.hk、sina.com.tw</p>
+<h1 id="排除某些关键词"><a href="#排除某些关键词" class="headerlink" title="排除某些关键词"></a>排除某些关键词</h1><p>使用<code>-关键词</code>即可排除你想要排除的关键词了，如<code>甲骨文 -数据库</code>即可排除关于oracle 数据库方面的信息了。</p>
+<p>拓展：此方法可以配合<code>site</code>以及<code>filetype</code>使用</p>
+<h1 id="其它搜索"><a href="#其它搜索" class="headerlink" title="其它搜索"></a>其它搜索</h1><h3 id="google当词典"><a href="#google当词典" class="headerlink" title="google当词典"></a>google当词典</h3><p>在你想要查询的词前加<code>define:</code>，输入<code>define:中文</code>试试吧</p>
+<h3 id="google换算汇率"><a href="#google换算汇率" class="headerlink" title="google换算汇率"></a>google换算汇率</h3><p><code>100 USD to CNY</code></p>
+</div><div class="tags"><a href="/tags/技巧/"><i class="fa fa-tag"></i>技巧</a></div><div class="post-nav"><a class="pre" href="/2019/01/17/嗨，W君/">嗨，W君</a><a class="next" href="/2019/01/11/Airbnb的JS代码规范整理/">Airbnb的JS代码规范整理</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://blog.hankqin.com/2019/01/17/google搜索进阶/';
+    this.page.identifier = '2019/01/17/google搜索进阶/';
+    this.page.title = 'google搜索进阶';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//hankqin.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//hankqin.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://hankqin.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Google/">Google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/备份/">备份</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/js规范/" style="font-size: 15px;">js规范</a> <a href="/tags/技巧/" style="font-size: 15px;">技巧</a> <a href="/tags/ci-自动化/" style="font-size: 15px;">ci 自动化</a> <a href="/tags/协议-页面渲染过程/" style="font-size: 15px;">协议 页面渲染过程</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/备份/" style="font-size: 15px;">备份</a> <a href="/tags/技术/" style="font-size: 15px;">技术</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/nginx-腾讯云-https/" style="font-size: 15px;">nginx 腾讯云 https</a> <a href="/tags/跨域/" style="font-size: 15px;">跨域</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/01/11/技术-2022-01-10/">技术 | 2022.01.10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/14/对egg-js框架的学习与理解/">对egg.js框架的学习与理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/16/技巧-折腾一个好看的windows终端/">折腾一个好看的windows终端</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/09/关于最近对VPS的研究/">关于最近对VPS的研究</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/03/记一次RSS整合感想/">记一次RSS整合感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/24/换了一个新主题/">换了一个新主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/嗨，W君/">嗨，W君</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/google搜索进阶/">google搜索进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/11/Airbnb的JS代码规范整理/">Airbnb的JS代码规范整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/记给Hankqin这个系统的一次升级/">记给Hankqin这个系统的一次升级</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//hankqin.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Hank.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=0.0.0"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" color="0,0,0" opacity="0.5" zIndex="-2" count="150" src="//cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.min.js"></script><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

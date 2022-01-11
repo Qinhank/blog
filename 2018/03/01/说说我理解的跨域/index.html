@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="一个前端开发er"><title>说说我理解的跨域 | Hank</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">说说我理解的跨域</h1><a id="logo" href="/."></a><p class="description">一个前端开发er</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/search.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">说说我理解的跨域</h1><div class="post-meta">2018-03-01<span> | </span><span class="category"><a href="/categories/技术/">技术</a></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/03/01/说说我理解的跨域/" href="/2018/03/01/说说我理解的跨域/#disqus_thread"></a><div class="post-content"><p>作为一个前端er，跨域这方面的知识是必须掌握的，只是说究竟是完全理解透了还是只是在会用这个层面。<br>我的目标是把它理解透了，只有这样才能在碰到很复杂的问题时不至于无从下手。</p>
+<h2 id="跨域是个啥"><a href="#跨域是个啥" class="headerlink" title="跨域是个啥"></a>跨域是个啥</h2><p>在上一篇文章里，我说了从输入一个url到回车究竟发生了什么，读过就知道实际上浏览器是从服务器上获取文件然后进行渲染解析等操作，按照这个过程，我浏览器是不是只要有地址就随便取别人服务器上的东西呢？<br>答案是否定的，相信作为一个从业者你也能想到，这一定会带来一些安全问题，浏览器自然也想到了，所以很久以前Netscape就提出了<strong>同源策略</strong>，定义是：  </p>
+<blockquote>
+<p>同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。  </p>
+</blockquote>
+<p>那么现在就有一个问题了，同源同源，那这个源到底是个啥玩意？<br>其实，源是由URI，主机名，端口号组合而成的。   <br><br>所以可想而知，在下面几种情况下资源不符合同源策略：  </p>
+<ol>
+<li>不同域名，如：<a href="http://www.hankqin.com" target="_blank" rel="noopener">http://www.hankqin.com</a> 和 <a href="http://www.qinhank.com" target="_blank" rel="noopener">http://www.qinhank.com</a></li>
+<li>相同域名不同端口号，如：<a href="http://www.hankqin.com:8080" target="_blank" rel="noopener">http://www.hankqin.com:8080</a> 和 <a href="http://www.hankqin.com:8081" target="_blank" rel="noopener">http://www.hankqin.com:8081</a></li>
+<li>同一个域名不同协议</li>
+<li>主域和子域，如<a href="http://www.hankqin.com" target="_blank" rel="noopener">http://www.hankqin.com</a> 和 <a href="http://blog.hankqin.com">http://blog.hankqin.com</a></li>
+<li>子域和子域，如<a href="http://blog.hankqin.com">http://blog.hankqin.com</a> 和 <a href="http://page.hankqin.com" target="_blank" rel="noopener">http://page.hankqin.com</a>  <br></li>
+</ol>
+<p>基于以上，跨域的定义也就自然出来了：  </p>
+<blockquote>
+<p>跨域，指的是浏览器不能执行其他网站的脚本。</p>
+</blockquote>
+<h2 id="解决跨域"><a href="#解决跨域" class="headerlink" title="解决跨域"></a>解决跨域</h2><p>知道了问题所在，就需要针对它做出相应的解决方案了。<br>常见的解决方案有：  </p>
+<ol>
+<li>JSONP</li>
+<li>跨域资源共享(CORS)</li>
+<li>document.domain+iframe（适用于主域名相同的情况）</li>
+<li>window.name + iframe</li>
+<li>postMessage（适用于两个iframe或两个页面之间）</li>
+<li>location.hash + iframe（适用于两个iframe之间）  </li>
+</ol>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p>这个方案我想应该是目前用的最多的。它的原理很简单：<br>作为从业者基本都知道script、img、link标签实际上使用的是开发策略，所以实际上我们是可以随便引用非同源的脚本的，JSONP就是基于这个策略实现的，具体过程如下：  </p>
+<ol>
+<li>前后端约定特定字符为JSONP返回(一般使用callback)  </li>
+<li>定义一个全局可访问的函数，参数即为服务器返回的数据，如:jsonpFn(data){}  </li>
+<li>通过script标签执行函数，如:    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://baidu.com?callback=jsonpFn&amp;data=getJsonpData"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>自此，跨域完成，数据成功返回并运行。<br>但正如你所见，JSONP只支持GET方法，对于POST是无力的。  </p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>即跨域资源共享，关于这个更详细的说明请看阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">跨域资源共享 CORS 详解</a>。<br>作为前端，实际上在CORS中需要做的不多，主要是后端。<br>浏览器CORS请求分成两种：  </p>
+<ol>
+<li>简单请求</li>
+<li>协商模型/预检请求（Preflighted Request），即非简单请求  </li>
+</ol>
+<p>这两种有什么分别呢，又是怎么区分呢？<br>一般来说，只要满足亮点，那它就是简单请求，否则则为非简单请求：  </p>
+<ol>
+<li>请求方式为<strong>GET</strong>、<strong>POST</strong>、<strong>HEAD</strong></li>
+<li>HTTP的头信息子段</li>
+</ol>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Last-Event-ID</li>
+<li>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain，其中’text/plain’默认支持，其他两种则需要预检请求和服务器协商。</li>
+</ul>
+<p>其余的我不太想说了，实际应用中都会有些不够完美。<br>更多细节请<a href="https://zhuanlan.zhihu.com/p/25654664" target="_blank" rel="noopener">狂点我查看</a></p>
+</div><div class="tags"><a href="/tags/跨域/"><i class="fa fa-tag"></i>跨域</a></div><div class="post-nav"><a class="pre" href="/2018/03/01/编写可维护的js/">编写可维护的js</a><a class="next" href="/2018/02/28/从输入一个URL到回车/">从输入一个URL到回车</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://blog.hankqin.com/2018/03/01/说说我理解的跨域/';
+    this.page.identifier = '2018/03/01/说说我理解的跨域/';
+    this.page.title = '说说我理解的跨域';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//hankqin.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//hankqin.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://hankqin.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Google/">Google</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/备份/">备份</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/js规范/" style="font-size: 15px;">js规范</a> <a href="/tags/技巧/" style="font-size: 15px;">技巧</a> <a href="/tags/ci-自动化/" style="font-size: 15px;">ci 自动化</a> <a href="/tags/协议-页面渲染过程/" style="font-size: 15px;">协议 页面渲染过程</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/备份/" style="font-size: 15px;">备份</a> <a href="/tags/技术/" style="font-size: 15px;">技术</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/nginx-腾讯云-https/" style="font-size: 15px;">nginx 腾讯云 https</a> <a href="/tags/跨域/" style="font-size: 15px;">跨域</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/01/11/技术-2022-01-10/">技术 | 2022.01.10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/14/对egg-js框架的学习与理解/">对egg.js框架的学习与理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/16/技巧-折腾一个好看的windows终端/">折腾一个好看的windows终端</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/09/关于最近对VPS的研究/">关于最近对VPS的研究</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/03/记一次RSS整合感想/">记一次RSS整合感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/24/换了一个新主题/">换了一个新主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/嗨，W君/">嗨，W君</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/google搜索进阶/">google搜索进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/11/Airbnb的JS代码规范整理/">Airbnb的JS代码规范整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/记给Hankqin这个系统的一次升级/">记给Hankqin这个系统的一次升级</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//hankqin.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Hank.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=0.0.0"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" color="0,0,0" opacity="0.5" zIndex="-2" count="150" src="//cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.min.js"></script><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
