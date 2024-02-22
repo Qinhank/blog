@@ -1,4 +1,4 @@
-disqus: hankqin ## Your disqus_shortname, e.g. username
+disqus: ## Your disqus_shortname, e.g. username
 uyan: ## Your uyan_id. e.g. 1234567
 livere: ## Your livere data-uid, e.g. MTAyMC8zMDAxOC78NTgz
 changyan: ## Your changyan appid, e.g. cyrALsXc8
@@ -17,15 +17,15 @@ valine: ## https://valine.js.org
   notify: false ## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-评论系统中的邮件提醒设置
   verify: false ## Validation code.
   placeholder: Comment here ## Comment box placeholders.
-  avatar: "mm" ## Gravatar type, see https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
+  avatar: 'mm' ## Gravatar type, see https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
   pageSize: 10 ## Number of comments per page.
   guest_info: nick,mail,link ## Attributes of reviewers.
 # MiniValine
 # See: https://github.com/MiniValine/MiniValine
 minivaline:
   enable: false
-  appId:  # Your leancloud application appid
-  appKey:  # Your leancloud application appkey
+  appId: # Your leancloud application appid
+  appKey: # Your leancloud application appkey
   placeholder: Write a Comment # Comment box placeholder
   adminEmailMd5: # The MD5 of Admin Email to show Admin Flag.
   math: true # Support MathJax.
@@ -54,7 +54,7 @@ canvas_nest:
   color: ## RGB value of the color, e.g. "100,99,98"
   opacity: ## Transparency of lines, e.g. "0.7"
   zIndex: ## The z-index property of the background, e.g. "-1"
-  count: "150" ## Quantity of lines, e.g. "150"
+  count: '150' ## Quantity of lines, e.g. "150"
 donate:
   enable: false ## If you want to display the donate button after each post, please set the value to true and fill the following items on your need. You can also enable donate button in a page by adding a "donate: true" item to the front-matter.
   github: ## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page
@@ -69,8 +69,8 @@ post_copyright:
   copyright_text: ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
 love: false ## If you want the love to appear when you click anywhere, set the value to true.
 plantuml: ## Using PlantUML to generate UML diagram, must install hexo-filter-plantuml (https://github.com/miao1007/hexo-filter-plantuml).
-    render: "PlantUMLServer" ## Local or PlantUMLServer.
-    outputFormat: "svg" ## Common options: svg/png
+  render: 'PlantUMLServer' ## Local or PlantUMLServer.
+  outputFormat: 'svg' ## Common options: svg/png
 copycode: true ## If you want to enable one-click copy of the code blocks, set the value to true.
 dark: false ## If you want to use the dark mode theme, set the value to true. Note: This feature is not complete, please open an issue if you have any problem.
 
